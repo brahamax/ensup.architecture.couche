@@ -1,35 +1,39 @@
 package presentattion;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
+import dao.Bdd;
 import model.Etudiant;
+import service.EtudiantServices;
 
 public class lanceur {
-
+	static EtudiantServices etudiantServices;
 	public static void main(String[] args) throws ParseException {
+		 etudiantServices = new EtudiantServices();
 		// mot de passe mysql
 		saisirMotDePasseMySQL();
 
 		// affichage menu
 		affichageMenu();
 
-		// choix de l'action à faire
+		// choix de l'action ï¿½ faire
 		int choix = saisieOperation();
 		
-		// opération à faire
+		// opï¿½ration ï¿½ faire
 		operation(choix);
 	}
 
 	/**
-	 * mot de passe base de donnée
+	 * mot de passe base de donnï¿½e
 	 */
 	private static void saisirMotDePasseMySQL() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("--------------------------------------------------------------");
-		System.out.print("Veuillez saisir le port de votre base de données Mysql : ");
+		System.out.print("Veuillez saisir le port de votre base de donnï¿½es Mysql : ");
 		String port = sc.next();
 		System.out.println();
 
@@ -41,6 +45,9 @@ public class lanceur {
 		System.out.println();
 		String password = sc.next();
 		System.out.println("--------------------------------------------------------------");
+		Bdd.passwd=password;
+		Bdd.port=port;
+		Bdd.login=login;
 	}
 
 	/**
@@ -52,18 +59,18 @@ public class lanceur {
 
 		// affichage basique
 		System.out.println("--------------------------------------------------------------");
-		System.out.println("Pour insérer un étudiant tapez 1");
-		System.out.println("Pour lister les étudiants tapez 2");
-		System.out.println("Pour supprimer un étudiant tapez 3");
-		System.out.println("Pour modifier le nom d'un étudiant tapez 4");
+		System.out.println("Pour insï¿½rer un ï¿½tudiant tapez 1");
+		System.out.println("Pour lister les infos d'un ï¿½tudiant tapez 2");
+		System.out.println("Pour supprimer un ï¿½tudiant tapez 3");
+		System.out.println("Pour modifier le nom d'un ï¿½tudiant tapez 4");
 		System.out.println("--------------------------------------------------------------");
 		//
 		System.out.print("Saisir un chiffre : ");
 	}
 
 	/**
-	 * saisir une numéro qui correspond à une opération
-	 * @return le numéro saisi
+	 * saisir une numï¿½ro qui correspond ï¿½ une opï¿½ration
+	 * @return le numï¿½ro saisi
 	 */
 
 	private static Integer saisieOperation() {
@@ -75,32 +82,32 @@ public class lanceur {
 	
 	/**
 	 * 
-	 * @param chiffre le choix de l'opération
+	 * @param chiffre le choix de l'opï¿½ration
 	 * @throws ParseException 
 	 */
 	private static void operation(int choix) throws ParseException {
 		Scanner scan = new Scanner(System.in);
 		switch (choix) {
 		case 1:
-			// enrégistrer un étudiant
+			// enrï¿½gistrer un ï¿½tudiant
 			System.out.println();
 			System.out.println("--------------------------------------------------------------");
-			System.out.print("entrer le nom de l'étudiant : ");
+			System.out.print("entrer le nom de l'ï¿½tudiant : ");
 			String nomEtudiant = scan.next();
 			System.out.println();
-			System.out.print("entrer le prenom de l'étudiant : ");
+			System.out.print("entrer le prenom de l'ï¿½tudiant : ");
 			String prenomEtudiant = scan.next();
 			System.out.println();
-			System.out.print("entrer l'email de l'étudiant : ");
+			System.out.print("entrer l'email de l'ï¿½tudiant : ");
 			String emailEtudaint = scan.next();
 			System.out.println();
-			System.out.print("entrer l'adresse de l'école : ");
+			System.out.print("entrer l'adresse de l'ï¿½cole : ");
 			String adresseEtudiant = scan.next();
 			System.out.println();
-			System.out.print("entrer le téléphone de l'étudiant : ");
+			System.out.print("entrer le tï¿½lï¿½phone de l'ï¿½tudiant : ");
 			String telephoneEtudiant = scan.next();
 			System.out.println();
-			System.out.print("entrer la date de naissance de l'étudiant : ");
+			System.out.print("entrer la date de naissance de l'ï¿½tudiant : ");
 			String dateNaissance = scan.next();
 			System.out.println();
 			//
@@ -112,14 +119,21 @@ public class lanceur {
 
 			break;
 		case 2:
-			// lister les étudiants
+			// lister les ï¿½tudiants
 			System.out.println();
-			System.out.println("La liste des étudiants");
+			System.out.println("La liste des ï¿½tudiants");
 			//ServiceGestionEnsup.lireEtudiant();
+			try {
+				System.out.println(etudiantServices.lireEtudiant(1));
+				
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 			break;
 		case 3:
-			// lister les étudiants
+			// lister les ï¿½tudiants
 			
 
 			break;

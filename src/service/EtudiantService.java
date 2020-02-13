@@ -1,6 +1,8 @@
 package service;
 
 
+import java.sql.SQLException;
+
 import model.Etudiant;
 
 
@@ -15,5 +17,5 @@ public interface EtudiantService {
 	
 	// lire un etudiant 
 	
-	public abstract Etudiant lireEtudiant(int id);
+	public abstract Etudiant lireEtudiant(int id) throws ClassNotFoundException, SQLException;
 }

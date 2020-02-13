@@ -6,13 +6,15 @@ import java.sql.SQLException;
 
 public class Bdd {
 	
-private String url = "jdbc:mysql://localhost:8888/archi_couche" ;
-private String login ="root";
-private String passwd="";
+private String url = "jdbc:mysql://localhost" ;
+public static String login ="root";
+public static String passwd="";
+public static String port = "";
+private String bd="archi_couche";
 private Connection cn =null;
 
  public void connection() throws ClassNotFoundException {
-		 
+		 url = url + ":"+ port + "/" + bd;
 		 try {
 			 Class.forName("com.mysql.jdbc.Driver");
 			 this.cn= DriverManager.getConnection(url,login,passwd);

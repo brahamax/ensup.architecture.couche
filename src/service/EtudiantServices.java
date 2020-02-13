@@ -1,8 +1,20 @@
 package service;
 
+import java.sql.SQLException;
+
+import dao.EtudiantDAO;
 import model.Etudiant;
 
 public class EtudiantServices implements EtudiantService {
+EtudiantDAO etudiantDao;
+
+
+	/**
+ * @param etudiantDao
+ */
+public EtudiantServices() {
+	 etudiantDao = new EtudiantDAO();;
+}
 
 	@Override
 	public void methode() {
@@ -27,9 +39,9 @@ public class EtudiantServices implements EtudiantService {
 	}
 
 	@Override
-	public Etudiant lireEtudiant( int id) {
+	public Etudiant lireEtudiant( int id) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		return etudiantDao.getEtudiant(id);
 	}
 	
 
