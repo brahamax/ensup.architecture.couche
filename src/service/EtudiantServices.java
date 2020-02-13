@@ -26,14 +26,9 @@ public class EtudiantServices implements EtudiantService {
 		 return result;
 	}
 
-	@Override
-	public void insererEtudiant(Etudiant etudiant) {
-		try {
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
+		public Etudiant lireEtudiant( int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

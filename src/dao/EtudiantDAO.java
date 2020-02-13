@@ -12,15 +12,24 @@ public class EtudiantDAO{
 			private static String sql = "";
 			private static Bdd B= new Bdd(); 
 
-			public static Etudiant get_nom_by_id(int a) throws ClassNotFoundException, SQLException {
+			public static Etudiant getEtudiant(int id) throws ClassNotFoundException, SQLException {
+				Etudiant user = null;
 				//connexion bdd
 				B.connection();
 				//traitement
 				st = B.getCn().createStatement();
-				sql = "Select * from etudiant Where id ="+Integer.toString(a);
+				sql = "Select * from etudiant Where id ="+Integer.toString(id);
 				rs = st.executeQuery(sql);
 				if(rs.next()){ 
-				return Etudiant(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
+					user = new Etudiant();
+					
+					user.setId(rs.getInt("id"));
+					user.setNom(rs.getString("nom"));
+					user.setPrenom(rs.getString("prenom"));
+					user.setEmail(rs.getString("email"));
+					user.setAdresse(rs.getString("adresse"));
+					user.setTelephone(rs.getString("telephone"));
+					user.setDateNaiss(rs.getDate("date_naiss"));
 					
 				}
 				else{
@@ -28,7 +37,7 @@ public class EtudiantDAO{
 				}
 				//deconnexion bdd
 				B.deconnection();
-				return null;
+				return user;
 		
 		
 	}
