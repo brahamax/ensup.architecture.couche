@@ -23,15 +23,6 @@ public class Etudiant {
 		this.dateNaiss = dateNaiss;
 	}
 
-	public Etudiant(String nom, String prenom, String email, String adresse, String telephone, Date dateNaiss) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-		this.adresse = adresse;
-		this.telephone = telephone;
-		this.dateNaiss = dateNaiss;
-	}
 
 	public Etudiant() {
 		// TODO Auto-generated constructor stub
