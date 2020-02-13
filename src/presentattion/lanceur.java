@@ -18,7 +18,7 @@ public class lanceur {
 
 		// choix de l'action à faire
 		int choix = saisieOperation();
-		
+
 		// opération à faire
 		operation(choix);
 	}
@@ -56,6 +56,7 @@ public class lanceur {
 		System.out.println("Pour lister les étudiants tapez 2");
 		System.out.println("Pour supprimer un étudiant tapez 3");
 		System.out.println("Pour modifier le nom d'un étudiant tapez 4");
+		System.out.println("Pour consulter les informations d'un étudiant tapez 5");
 		System.out.println("--------------------------------------------------------------");
 		//
 		System.out.print("Saisir un chiffre : ");
@@ -63,6 +64,7 @@ public class lanceur {
 
 	/**
 	 * saisir une numéro qui correspond à une opération
+	 * 
 	 * @return le numéro saisi
 	 */
 
@@ -72,11 +74,11 @@ public class lanceur {
 		int saisie = scan.nextInt();
 		return saisie;
 	}
-	
+
 	/**
 	 * 
 	 * @param chiffre le choix de l'opération
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	private static void operation(int choix) throws ParseException {
 		Scanner scan = new Scanner(System.in);
@@ -108,25 +110,32 @@ public class lanceur {
 			//
 			Etudiant etudiant = new Etudiant(nomEtudiant, prenomEtudiant, emailEtudaint, adresseEtudiant,
 					telephoneEtudiant, date);
-			
 
 			break;
 		case 2:
 			// lister les étudiants
 			System.out.println();
 			System.out.println("La liste des étudiants");
-			//ServiceGestionEnsup.lireEtudiant();
+			// ServiceGestionEnsup.lireEtudiant();
 
 			break;
 		case 3:
-			// lister les étudiants
-			
 
 			break;
-		default:
-			
+		case 4:
+
 			break;
-		
+
+		case 5:
+			System.out.print("entrer le numéro de l'étudiant : ");
+			int numero = scan.nextInt();
+			System.out.println();
+			break;
+
+		default:
+
+			break;
+
 		}
 	}
 
