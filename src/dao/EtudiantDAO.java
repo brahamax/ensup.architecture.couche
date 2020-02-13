@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-public class EtudiantDAO implements EtudiantDAOmethodes {
+public class EtudiantDAO{
 			private static Statement st = null;
 			private static ResultSet rs=null;
 			private static String sql = "";
