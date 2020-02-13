@@ -24,6 +24,7 @@ public class lanceur {
 		int choix = saisieOperation();
 		
 		// op�ration � faire
+
 		operation(choix);
 	}
 
@@ -59,18 +60,26 @@ public class lanceur {
 
 		// affichage basique
 		System.out.println("--------------------------------------------------------------");
+
 		System.out.println("Pour ins�rer un �tudiant tapez 1");
-		System.out.println("Pour lister les infos d'un �tudiant tapez 2");
+		System.out.println("Pour lister les �tudiants tapez 2");
 		System.out.println("Pour supprimer un �tudiant tapez 3");
 		System.out.println("Pour modifier le nom d'un �tudiant tapez 4");
+		System.out.println("Pour consulter les informations d'un �tudiant tapez 5");
 		System.out.println("--------------------------------------------------------------");
 		//
 		System.out.print("Saisir un chiffre : ");
 	}
 
 	/**
+<<<<<<< HEAD
 	 * saisir une num�ro qui correspond � une op�ration
 	 * @return le num�ro saisi
+=======
+	 * saisir une num�ro qui correspond � une op�ration
+	 * 
+	 * @return le num�ro saisi
+>>>>>>> 6da6af048db17e3e1dc074922459f80b7d111f75
 	 */
 
 	private static Integer saisieOperation() {
@@ -79,11 +88,16 @@ public class lanceur {
 		int saisie = scan.nextInt();
 		return saisie;
 	}
-	
+
 	/**
 	 * 
+<<<<<<< HEAD
 	 * @param chiffre le choix de l'op�ration
 	 * @throws ParseException 
+=======
+	 * @param chiffre le choix de l'op�ration
+	 * @throws ParseException
+>>>>>>> 6da6af048db17e3e1dc074922459f80b7d111f75
 	 */
 	private static void operation(int choix) throws ParseException {
 		Scanner scan = new Scanner(System.in);
@@ -115,16 +129,28 @@ public class lanceur {
 			//
 			Etudiant etudiant = new Etudiant(nomEtudiant, prenomEtudiant, emailEtudaint, adresseEtudiant,
 					telephoneEtudiant, date);
-			
 
 			break;
 		case 2:
 			// lister les �tudiants
-			System.out.println();
-			System.out.println("La liste des �tudiants");
-			//ServiceGestionEnsup.lireEtudiant();
+	System.out.println("La liste des �tudiants");
+			// ServiceGestionEnsup.lireEtudiant();
+
+			break;
+		case 3:
+
+
+			break;
+		case 4:
+
+			break;
+
+		case 5:
+			System.out.print("entrer le num�ro de l'�tudiant : ");
+			int numero = scan.nextInt();
+			//System.out.println();
 			try {
-				System.out.println(etudiantServices.lireEtudiant(1));
+				System.out.println(etudiantServices.lireEtudiant(numero));
 				
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
@@ -132,15 +158,11 @@ public class lanceur {
 			}
 
 			break;
-		case 3:
-			// lister les �tudiants
-			
+
+		default:
 
 			break;
-		default:
-			
-			break;
-		
+
 		}
 	}
 

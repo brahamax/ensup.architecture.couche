@@ -40,7 +40,7 @@ public EtudiantServices() {
 
 	@Override
 	public Etudiant lireEtudiant( int id) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
+
 		return etudiantDao.getEtudiant(id);
 	}
 	
