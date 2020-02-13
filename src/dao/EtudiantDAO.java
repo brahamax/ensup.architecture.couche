@@ -3,6 +3,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 import model.Etudiant;
 
 
@@ -42,6 +43,23 @@ public class EtudiantDAO{
 		
 	}
 
+			public static int insertEtudiant(Etudiant e) throws SQLException, ClassNotFoundException {
+				if(e != null) {
+					//connexion bdd
+					B.connection();
+					//traitement
+					st = B.getCn().createStatement();
+					sql = "insert into etudiant values('"+e.getId()+"','"+e.getNom()+"','"+e.getPrenom()+"','"+e.getEmail()+"','"+e.getAdresse()+"','"+e.getTelephone()+"',"+e.getDateNaiss()+")";
+					st.executeUpdate(sql);
+					//deconnexion bdd
+					B.deconnection();
+					return 0;
+				}
+				
+				return 1;
+				
+			}
+			
 
 
 	
