@@ -25,6 +25,13 @@ private Connection cn =null;
 		 
 		
 	}
+ 
+ 
+ public void deconnection() throws SQLException {
+	 this.cn.close();
+		
+ }
+ 
  public String getUrl() {
 	return url;
 }
@@ -46,12 +53,10 @@ public void setPasswd(String passwd) {
 public Connection getCn() {
 	return cn;
 }
+
 public void setCn(Connection cn) {
 	this.cn = cn;
 }
-public void deconnection() throws SQLException {
-	 this.cn.close();
-		
- }
+
  
 }
