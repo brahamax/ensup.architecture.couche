@@ -12,157 +12,159 @@ import service.EtudiantServices;
 
 public class lanceur {
 	static EtudiantServices etudiantServices;
-	public static void main(String[] args) throws ParseException {
-		 etudiantServices = new EtudiantServices();
-		// mot de passe mysql
-		saisirMotDePasseMySQL();
+
+	/**
+	 * Méthode main
+	 * 
+	 * @param args
+	 * @throws ParseException
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	public static void main(String[] args) throws ParseException, ClassNotFoundException, SQLException {
+		etudiantServices = new EtudiantServices();
+
+		Bdd.passwd = "root";
+		Bdd.port = "3306";
+		Bdd.login = "root";
 
 		// affichage menu
-		affichageMenu();
-
-		// choix de l'action é faire
-		int choix = saisieOperation();
-		
-		// opération é faire
-
-		operation(choix);
+		operationsRepetees();
 	}
 
 	/**
-	 * mot de passe base de donnée
+	 * affichage du menu
 	 */
-	private static void saisirMotDePasseMySQL() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("--------------------------------------------------------------");
-		System.out.print("Veuillez saisir le port de votre base de données Mysql : ");
-		String port = sc.next();
-		System.out.println();
-
-		System.out.print("Veuillez saisir le login de votre base mysql : ");
-		String login = sc.next();
-		System.out.println();
-
-		System.out.print("Veuillez saisir le mot de passe de votre base mysql : ");
-		System.out.println();
-		String password = sc.next();
-		System.out.println("--------------------------------------------------------------");
-		Bdd.passwd=password;
-		Bdd.port=port;
-		Bdd.login=login;
-	}
-
-	/**
-	 * affichage
-	 */
-
 	private static void affichageMenu() {
 		Scanner scan = new Scanner(System.in);
 
 		// affichage basique
 		System.out.println("--------------------------------------------------------------");
-
-		System.out.println("Pour insérer un étudiant tapez 1");
-		System.out.println("Pour lister les étudiants tapez 2");
-		System.out.println("Pour supprimer un étudiant tapez 3");
-		System.out.println("Pour modifier le nom d'un étudiant tapez 4");
-		System.out.println("Pour consulter les informations d'un étudiant tapez 5");
+		System.out.println("Pour inserer un etudiant tapez 1");
+		System.out.println("Pour consulter les informations d'un etudiant tapez 2");
 		System.out.println("--------------------------------------------------------------");
 		//
 		System.out.print("Saisir un chiffre : ");
 	}
 
 	/**
-<<<<<<< HEAD
-	 * saisir une numéro qui correspond é une opération
-	 * @return le numéro saisi
-=======
-	 * saisir une numéro qui correspond é une opération
 	 * 
-	 * @return le numéro saisi
->>>>>>> 6da6af048db17e3e1dc074922459f80b7d111f75
+	 * @return un numéro qui correspond à une opération
 	 */
-
 	private static Integer saisieOperation() {
 		//
 		Scanner scan = new Scanner(System.in);
 		int saisie = scan.nextInt();
+
+		if (saisie != 1 && saisie != 2) {
+			System.out.println("Mauvais choix d'operation veuillez recommencer");
+			System.out.print("Saisir un chiffre : ");
+			saisie = saisieOperation();
+		}
 		return saisie;
 	}
 
 	/**
+	 * @param choix le choix de l'opération à faire
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 * 
-<<<<<<< HEAD
-	 * @param chiffre le choix de l'opération
-	 * @throws ParseException 
-=======
-	 * @param chiffre le choix de l'opération
-	 * @throws ParseException
->>>>>>> 6da6af048db17e3e1dc074922459f80b7d111f75
 	 */
-	private static void operation(int choix) throws ParseException {
+	private static void operation(int choix) throws ParseException, ClassNotFoundException, SQLException {
 		Scanner scan = new Scanner(System.in);
 		switch (choix) {
 		case 1:
 			// enrégistrer un étudiant
 			System.out.println();
 			System.out.println("--------------------------------------------------------------");
-			System.out.print("entrer le nom de l'étudiant : ");
+			System.out.print("entrer le nom de l'etudiant : ");
 			String nomEtudiant = scan.next();
 			System.out.println();
-			System.out.print("entrer le prenom de l'étudiant : ");
+			System.out.print("entrer le prenom de l'etudiant : ");
 			String prenomEtudiant = scan.next();
 			System.out.println();
-			System.out.print("entrer l'email de l'étudiant : ");
+			System.out.print("entrer l'email de l'etudiant : ");
 			String emailEtudaint = scan.next();
 			System.out.println();
-			System.out.print("entrer l'adresse de l'école : ");
+			System.out.print("entrer l'adresse de l'etudiant : ");
 			String adresseEtudiant = scan.next();
 			System.out.println();
-			System.out.print("entrer le téléphone de l'étudiant : ");
+			System.out.print("entrer le téléphone de l'etudiant : ");
 			String telephoneEtudiant = scan.next();
 			System.out.println();
-			System.out.print("entrer la date de naissance de l'étudiant : ");
+			System.out.print("entrer la date de naissance de l'étudiant : format(yyyy-mm-dd) ");
 			String dateNaissance = scan.next();
 			System.out.println();
 			//
-			Date date = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(dateNaissance);
-			//
+			
 			Etudiant etudiant = new Etudiant(nomEtudiant, prenomEtudiant, emailEtudaint, adresseEtudiant,
-					telephoneEtudiant, date);
-
+					telephoneEtudiant, dateNaissance);
+			
+			etudiantServices.insererEtudiant(etudiant);
+			
+			operationsRepetees();
 			break;
 		case 2:
-			// lister les étudiants
-	System.out.println("La liste des étudiants");
-			// ServiceGestionEnsup.lireEtudiant();
 
-			break;
-		case 3:
-
-
-			break;
-		case 4:
-
-			break;
-
-		case 5:
 			System.out.print("entrer le numéro de l'étudiant : ");
 			int numero = scan.nextInt();
-			//System.out.println();
 			try {
 				System.out.println(etudiantServices.lireEtudiant(numero));
-				
+
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
+			operationsRepetees();
 			break;
 
 		default:
 
 			break;
 
+		}
+	}
+
+	/**
+	 * regroupement des opérations répétées
+	 * @throws ParseException
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	private static void operationsRepetees() throws ParseException, ClassNotFoundException, SQLException {
+		// affichage menu
+		affichageMenu();
+
+		// choix de l'action é faire
+		int choix = saisieOperation();
+
+		// opération é faire
+
+		operation(choix);
+	}
+
+	/**
+	 * Si oui ou non on veut continuer l'operation
+	 * @throws ParseException
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	private static void continuerOperation() throws ParseException, ClassNotFoundException, SQLException {
+		System.out.println("");
+		System.out.print("Voulez-vous continuer??? O/N : ");
+		Scanner scan = new Scanner(System.in);
+
+		String reponse = scan.next().toUpperCase();
+
+		if (reponse.equals("O")) {
+			operationsRepetees();
+		} else {
+			if (reponse.equals("F")) {
+				System.out.println("Au revoir ........... ");
+			} else {
+				System.out.println(" Mauvais choix");
+				continuerOperation();
+			}
 		}
 	}
 

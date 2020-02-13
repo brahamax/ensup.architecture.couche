@@ -1,7 +1,5 @@
 package model;
 
-import java.sql.Date;
-
 public class Etudiant {
 
 	private int id;
@@ -10,9 +8,9 @@ public class Etudiant {
 	private String email;
 	private String adresse;
 	private String telephone;
-	private Date dateNaiss;
+	private String dateNaiss;
 
-	public Etudiant(int id, String nom, String prenom, String email, String adresse, String telephone, Date dateNaiss) {
+	public Etudiant(int id, String nom, String prenom, String email, String adresse, String telephone, String dateNaiss) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -23,7 +21,7 @@ public class Etudiant {
 		this.dateNaiss = dateNaiss;
 	}
 
-	public Etudiant(String nom, String prenom, String email, String adresse, String telephone, Date dateNaiss) {
+	public Etudiant(String nom, String prenom, String email, String adresse, String telephone, String dateNaiss) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -85,11 +83,11 @@ public class Etudiant {
 		this.telephone = telephone;
 	}
 
-	public Date getDateNaiss() {
+	public String getDateNaiss() {
 		return dateNaiss;
 	}
 
-	public void setDateNaiss(Date dateNaiss) {
+	public void setDateNaiss(String dateNaiss) {
 		this.dateNaiss = dateNaiss;
 	}
 

@@ -14,7 +14,7 @@ public class EtudiantDAO{
 			private static Bdd B= new Bdd(); 
 
 			public static Etudiant getEtudiant(int id) throws ClassNotFoundException, SQLException {
-				Etudiant user = null;
+				Etudiant etudiant = null;
 				//connexion bdd
 				B.connection();
 				//traitement
@@ -22,15 +22,15 @@ public class EtudiantDAO{
 				sql = "Select * from etudiant Where id ="+Integer.toString(id);
 				rs = st.executeQuery(sql);
 				if(rs.next()){ 
-					user = new Etudiant();
+					etudiant = new Etudiant();
 					
-					user.setId(rs.getInt("id"));
-					user.setNom(rs.getString("nom"));
-					user.setPrenom(rs.getString("prenom"));
-					user.setEmail(rs.getString("email"));
-					user.setAdresse(rs.getString("adresse"));
-					user.setTelephone(rs.getString("telephone"));
-					user.setDateNaiss(rs.getDate("date_naiss"));
+					etudiant.setId(rs.getInt("id"));
+					etudiant.setNom(rs.getString("nom"));
+					etudiant.setPrenom(rs.getString("prenom"));
+					etudiant.setEmail(rs.getString("email"));
+					etudiant.setAdresse(rs.getString("adresse"));
+					etudiant.setTelephone(rs.getString("telephone"));
+					etudiant.setDateNaiss(rs.getString("date_naiss"));
 					
 				}
 				else{
@@ -38,7 +38,7 @@ public class EtudiantDAO{
 				}
 				//deconnexion bdd
 				B.deconnection();
-				return user;
+				return etudiant;
 		
 		
 	}
@@ -49,8 +49,9 @@ public class EtudiantDAO{
 					B.connection();
 					//traitement
 					st = B.getCn().createStatement();
-					sql = "insert into etudiant values('"+e.getId()+"','"+e.getNom()+"','"+e.getPrenom()+"','"+e.getEmail()+"','"+e.getAdresse()+"','"+e.getTelephone()+"',"+e.getDateNaiss()+")";
+					sql = "INSERT INTO `etudiant`(`nom`, `prenom`, `email`, `adresse`, `telephone`, `date_naiss`) values('"+e.getNom()+"','"+e.getPrenom()+"','"+e.getEmail()+"','"+e.getAdresse()+"','"+e.getTelephone()+"', null)";
 					st.executeUpdate(sql);
+					System.out.println("Etudiant enrégistré avec succès");
 					//deconnexion bdd
 					B.deconnection();
 					return 0;
