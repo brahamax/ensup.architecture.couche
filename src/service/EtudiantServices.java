@@ -25,6 +25,12 @@ public class EtudiantServices implements EtudiantService {
 		
 		 return result;
 	}
+
+	@Override
+	public Etudiant lireEtudiant( int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }

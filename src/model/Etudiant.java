@@ -33,6 +33,10 @@ public class Etudiant {
 		this.dateNaiss = dateNaiss;
 	}
 
+	public Etudiant() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return id;
 	}

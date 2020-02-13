@@ -12,4 +12,8 @@ public interface EtudiantService {
 		 * 
 		 */
 	public abstract String compareAge(Etudiant etu1, Etudiant etu2);
+	
+	// lire un etudiant 
+	
+	public abstract Etudiant lireEtudiant(int id);
 }
