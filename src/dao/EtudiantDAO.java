@@ -15,9 +15,9 @@ public class EtudiantDAO{
 
 			
 			 /**
-			  * Renvoyer l'etudiant avec l'identifiant mentionne 
-			  * @param int id
-			  * @return Etudiant
+			  *Renvoyer l'etudiant avec l'identifiant mentionne 
+			  *@param id int 
+			  *@return Etudiant
 			  */
 			
 			public Etudiant getEtudiant(int id) throws ClassNotFoundException, SQLException {
@@ -52,7 +52,7 @@ public class EtudiantDAO{
 
 			 /**
 			  * Inserer un etudiant dans la base de donnee 
-			  * @param Etudiant e
+			  * @param e Etudiant
 			  * @return int 
 			  */
 			public int insertEtudiant(Etudiant e) throws SQLException, ClassNotFoundException {

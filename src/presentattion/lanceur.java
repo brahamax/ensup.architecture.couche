@@ -84,7 +84,7 @@ public class lanceur {
 	}
 
 	/**
-	 * @param chiffre le choix de l'op�ration
+	 * @param choix le choix de l'op�ration
 	 * @throws ParseException 
 	 */
 	private static void operation(int choix) throws ParseException {
