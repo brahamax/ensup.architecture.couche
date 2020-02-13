@@ -5,44 +5,38 @@ import java.sql.SQLException;
 import dao.EtudiantDAO;
 import model.Etudiant;
 
-public class EtudiantServices implements EtudiantService {
-EtudiantDAO etudiantDao;
+public class EtudiantServices {
 
+	public String afficherEtudiant(int id) throws ClassNotFoundException, SQLException {
 
-	/**
- * @param etudiantDao
- */
-public EtudiantServices() {
-	 etudiantDao = new EtudiantDAO();;
-}
-
-	@Override
-	public void methode() {
-		// TODO Auto-generated method stub
-		
+		return EtudiantDAO.getEtudiant(id).toString();
 	}
-	
-	// methodes metiers 
-	
-	// comparer deux etudiants ( age) 
+
+	public String insererEtudiant(Etudiant e) throws ClassNotFoundException, SQLException {
+
+		if (EtudiantDAO.insertEtudiant(e) == 0) {
+			return "Etudiant inseré";
+		}
+		return "Etudiant non inseré";
+	}
+
+	// comparer deux etudiants ( age)
 	/*
 	 * 
 	 */
-	public  String compareAge(Etudiant etu1, Etudiant etu2) {
-		String result ="";
-		if(etu1.getDateNaiss().before(etu2.getDateNaiss())) 
-			result = etu1.getPrenom() + " " + etu1.getNom() +" est plus agé  ";
+	public String compareAge(Etudiant etu1, Etudiant etu2) {
+		String result = "";
+		if (etu1.getDateNaiss().before(etu2.getDateNaiss()))
+			result = etu1.getPrenom() + " " + etu1.getNom() + " est plus agé  ";
 		else
-			result = etu2.getPrenom() + " " + etu2.getNom() +" est plus agé  ";
-		
-		 return result;
+			result = etu2.getPrenom() + " " + etu2.getNom() + " est plus agé  ";
+
+		return result;
 	}
 
-	@Override
-	public Etudiant lireEtudiant( int id) throws ClassNotFoundException, SQLException {
+	public Etudiant lireEtudiant(int id) throws ClassNotFoundException, SQLException {
 
-		return etudiantDao.getEtudiant(id);
+		return EtudiantDAO.getEtudiant(id);
+
 	}
-	
-
 }
