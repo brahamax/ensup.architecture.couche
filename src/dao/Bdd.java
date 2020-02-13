@@ -7,9 +7,15 @@ import java.sql.SQLException;
 public class Bdd {
 	
 private String url = "jdbc:mysql://localhost" ;
+<<<<<<< HEAD
 public static String login ="root";
 public static String passwd="root";
 public static String port = "3306";
+=======
+public String login ="root";
+public String passwd="";
+public String port = "";
+>>>>>>> bb002fcc0d1836a8f686dad612eb5c33b5d2e7a2
 private String bd="archi_couche";
 private Connection cn =null;
 
@@ -49,7 +55,7 @@ private Connection cn =null;
 }
  /**
   * Modifier l'url du serveur de la BDD.
-  * @param String url
+  * @param url String
   */
  
 public void setUrl(String url) {
@@ -79,7 +85,7 @@ public String getPasswd() {
 
 /**
  * Modifier le mot de passe du serveur de la BDD.
- * @param String passwd
+ * @param passwd String
  */
 public void setPasswd(String passwd) {
 	this.passwd = passwd;
@@ -95,7 +101,7 @@ public Connection getCn() {
 
 /**
  * Modifier l'attribut Connection cn.
- * @param Connection cn
+ * @param cn Connection
  */
 public void setCn(Connection cn) {
 	this.cn = cn;

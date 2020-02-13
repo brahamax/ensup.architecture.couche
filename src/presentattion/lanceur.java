@@ -66,11 +66,15 @@ public class lanceur {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param choix le choix de l'opération à faire
 	 * @throws SQLException 
 	 * @throws ClassNotFoundException 
 	 * 
 	 * @param chiffre le choix de l'opï¿½ration
+=======
+	 * @param choix le choix de l'opï¿½ration
+>>>>>>> bb002fcc0d1836a8f686dad612eb5c33b5d2e7a2
 	 * @throws ParseException 
 	 */
 	private static void operation(int choix) throws ParseException, ClassNotFoundException, SQLException {
