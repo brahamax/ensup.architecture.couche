@@ -11,8 +11,9 @@ public class EtudiantServices {
 	public String afficherEtudiant( int id) throws ClassNotFoundException, SQLException {
 
 		return EtudiantDAO.getEtudiant(id).toString();
+	}
 		
-	public String insererEtudiant (Etudiant e){
+	public String insererEtudiant(Etudiant e) throws ClassNotFoundException, SQLException{
 		
 		if (EtudiantDAO.insertEtudiant(e)== 0) {
 			return "Etudiant inseré";
@@ -24,4 +25,4 @@ public class EtudiantServices {
 	}
 	
 
-}
+
