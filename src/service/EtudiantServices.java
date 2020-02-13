@@ -22,7 +22,7 @@ public class EtudiantServices {
 	/**
 	  * Afficher le resultat de l'insertion de l'etudiant
 	  * @param Etudiant e
-	  * @return Stringg
+	  * @return String
 	  */
 	public String insererEtudiant(Etudiant e) throws ClassNotFoundException, SQLException{
 		
