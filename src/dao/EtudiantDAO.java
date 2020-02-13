@@ -13,7 +13,14 @@ public class EtudiantDAO{
 			private static String sql = "";
 			private static Bdd B= new Bdd(); 
 
-			public static Etudiant getEtudiant(int id) throws ClassNotFoundException, SQLException {
+			
+			 /**
+			  * Renvoyer l'etudiant avec l'identifiant mentionne 
+			  * @param int id
+			  * @return Etudiant
+			  */
+			
+			public Etudiant getEtudiant(int id) throws ClassNotFoundException, SQLException {
 				Etudiant user = null;
 				//connexion bdd
 				B.connection();
@@ -43,7 +50,12 @@ public class EtudiantDAO{
 		
 	}
 
-			public static int insertEtudiant(Etudiant e) throws SQLException, ClassNotFoundException {
+			 /**
+			  * Inserer un etudiant dans la base de donnee 
+			  * @param Etudiant e
+			  * @return int 
+			  */
+			public int insertEtudiant(Etudiant e) throws SQLException, ClassNotFoundException {
 				if(e != null) {
 					//connexion bdd
 					B.connection();
