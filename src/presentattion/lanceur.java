@@ -20,21 +20,21 @@ public class lanceur {
 		// affichage menu
 		affichageMenu();
 
-		// choix de l'action ï¿½ faire
+		// choix de l'action é faire
 		int choix = saisieOperation();
 		
-		// opï¿½ration ï¿½ faire
+		// opération é faire
 
 		operation(choix);
 	}
 
 	/**
-	 * mot de passe base de donnï¿½e
+	 * mot de passe base de donnée
 	 */
 	private static void saisirMotDePasseMySQL() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("--------------------------------------------------------------");
-		System.out.print("Veuillez saisir le port de votre base de donnï¿½es Mysql : ");
+		System.out.print("Veuillez saisir le port de votre base de données Mysql : ");
 		String port = sc.next();
 		System.out.println();
 
@@ -61,11 +61,11 @@ public class lanceur {
 		// affichage basique
 		System.out.println("--------------------------------------------------------------");
 
-		System.out.println("Pour insï¿½rer un ï¿½tudiant tapez 1");
-		System.out.println("Pour lister les ï¿½tudiants tapez 2");
-		System.out.println("Pour supprimer un ï¿½tudiant tapez 3");
-		System.out.println("Pour modifier le nom d'un ï¿½tudiant tapez 4");
-		System.out.println("Pour consulter les informations d'un ï¿½tudiant tapez 5");
+		System.out.println("Pour insérer un étudiant tapez 1");
+		System.out.println("Pour lister les étudiants tapez 2");
+		System.out.println("Pour supprimer un étudiant tapez 3");
+		System.out.println("Pour modifier le nom d'un étudiant tapez 4");
+		System.out.println("Pour consulter les informations d'un étudiant tapez 5");
 		System.out.println("--------------------------------------------------------------");
 		//
 		System.out.print("Saisir un chiffre : ");
@@ -73,12 +73,12 @@ public class lanceur {
 
 	/**
 <<<<<<< HEAD
-	 * saisir une numï¿½ro qui correspond ï¿½ une opï¿½ration
-	 * @return le numï¿½ro saisi
+	 * saisir une numéro qui correspond é une opération
+	 * @return le numéro saisi
 =======
-	 * saisir une numï¿½ro qui correspond ï¿½ une opï¿½ration
+	 * saisir une numéro qui correspond é une opération
 	 * 
-	 * @return le numï¿½ro saisi
+	 * @return le numéro saisi
 >>>>>>> 6da6af048db17e3e1dc074922459f80b7d111f75
 	 */
 
@@ -92,10 +92,10 @@ public class lanceur {
 	/**
 	 * 
 <<<<<<< HEAD
-	 * @param chiffre le choix de l'opï¿½ration
+	 * @param chiffre le choix de l'opération
 	 * @throws ParseException 
 =======
-	 * @param chiffre le choix de l'opï¿½ration
+	 * @param chiffre le choix de l'opération
 	 * @throws ParseException
 >>>>>>> 6da6af048db17e3e1dc074922459f80b7d111f75
 	 */
@@ -103,25 +103,25 @@ public class lanceur {
 		Scanner scan = new Scanner(System.in);
 		switch (choix) {
 		case 1:
-			// enrï¿½gistrer un ï¿½tudiant
+			// enrégistrer un étudiant
 			System.out.println();
 			System.out.println("--------------------------------------------------------------");
-			System.out.print("entrer le nom de l'ï¿½tudiant : ");
+			System.out.print("entrer le nom de l'étudiant : ");
 			String nomEtudiant = scan.next();
 			System.out.println();
-			System.out.print("entrer le prenom de l'ï¿½tudiant : ");
+			System.out.print("entrer le prenom de l'étudiant : ");
 			String prenomEtudiant = scan.next();
 			System.out.println();
-			System.out.print("entrer l'email de l'ï¿½tudiant : ");
+			System.out.print("entrer l'email de l'étudiant : ");
 			String emailEtudaint = scan.next();
 			System.out.println();
-			System.out.print("entrer l'adresse de l'ï¿½cole : ");
+			System.out.print("entrer l'adresse de l'école : ");
 			String adresseEtudiant = scan.next();
 			System.out.println();
-			System.out.print("entrer le tï¿½lï¿½phone de l'ï¿½tudiant : ");
+			System.out.print("entrer le téléphone de l'étudiant : ");
 			String telephoneEtudiant = scan.next();
 			System.out.println();
-			System.out.print("entrer la date de naissance de l'ï¿½tudiant : ");
+			System.out.print("entrer la date de naissance de l'étudiant : ");
 			String dateNaissance = scan.next();
 			System.out.println();
 			//
@@ -132,8 +132,8 @@ public class lanceur {
 
 			break;
 		case 2:
-			// lister les ï¿½tudiants
-	System.out.println("La liste des ï¿½tudiants");
+			// lister les étudiants
+	System.out.println("La liste des étudiants");
 			// ServiceGestionEnsup.lireEtudiant();
 
 			break;
@@ -146,7 +146,7 @@ public class lanceur {
 			break;
 
 		case 5:
-			System.out.print("entrer le numï¿½ro de l'ï¿½tudiant : ");
+			System.out.print("entrer le numéro de l'étudiant : ");
 			int numero = scan.nextInt();
 			//System.out.println();
 			try {
