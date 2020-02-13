@@ -72,14 +72,8 @@ public class lanceur {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * saisir une num�ro qui correspond � une op�ration
 	 * @return le num�ro saisi
-=======
-	 * saisir une num�ro qui correspond � une op�ration
-	 * 
-	 * @return le num�ro saisi
->>>>>>> 6da6af048db17e3e1dc074922459f80b7d111f75
 	 */
 
 	private static Integer saisieOperation() {
@@ -90,14 +84,8 @@ public class lanceur {
 	}
 
 	/**
-	 * 
-<<<<<<< HEAD
 	 * @param chiffre le choix de l'op�ration
 	 * @throws ParseException 
-=======
-	 * @param chiffre le choix de l'op�ration
-	 * @throws ParseException
->>>>>>> 6da6af048db17e3e1dc074922459f80b7d111f75
 	 */
 	private static void operation(int choix) throws ParseException {
 		Scanner scan = new Scanner(System.in);
