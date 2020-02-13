@@ -1,9 +1,8 @@
 package presentattion;
 
-import java.sql.Date;
+
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 import dao.Bdd;
@@ -50,6 +49,8 @@ public class lanceur {
 	/**
 	 * 
 	 * @return un numéro qui correspond à une opération
+	 * saisir une numï¿½ro qui correspond ï¿½ une opï¿½ration
+	 * @return le numï¿½ro saisi
 	 */
 	private static Integer saisieOperation() {
 		//
@@ -69,6 +70,8 @@ public class lanceur {
 	 * @throws SQLException 
 	 * @throws ClassNotFoundException 
 	 * 
+	 * @param chiffre le choix de l'opï¿½ration
+	 * @throws ParseException 
 	 */
 	private static void operation(int choix) throws ParseException, ClassNotFoundException, SQLException {
 		Scanner scan = new Scanner(System.in);
@@ -109,7 +112,7 @@ public class lanceur {
 			System.out.print("entrer le numéro de l'étudiant : ");
 			int numero = scan.nextInt();
 			try {
-				System.out.println(etudiantServices.lireEtudiant(numero));
+				System.out.println(etudiantServices.afficherEtudiant(numero));
 
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
