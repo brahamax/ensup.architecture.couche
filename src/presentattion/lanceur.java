@@ -48,9 +48,9 @@ public class lanceur {
 
 	/**
 	 * 
-	 * @return un numéro qui correspond à une opération
-	 * saisir une numï¿½ro qui correspond ï¿½ une opï¿½ration
-	 * @return le numï¿½ro saisi
+	 * @return un numéro qui correspond a une opération
+	 * saisir une numero qui correspond aune operation
+	 * @return le numero saisi
 	 */
 	private static Integer saisieOperation() {
 		//
@@ -66,15 +66,10 @@ public class lanceur {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * @param choix le choix de l'opération à faire
 	 * @throws SQLException 
 	 * @throws ClassNotFoundException 
-	 * 
-	 * @param chiffre le choix de l'opï¿½ration
-=======
-	 * @param choix le choix de l'opï¿½ration
->>>>>>> bb002fcc0d1836a8f686dad612eb5c33b5d2e7a2
+	 * @param chiffre le choix de l'operation
 	 * @throws ParseException 
 	 */
 	private static void operation(int choix) throws ParseException, ClassNotFoundException, SQLException {
@@ -115,13 +110,14 @@ public class lanceur {
 
 			System.out.print("entrer le numéro de l'étudiant : ");
 			int numero = scan.nextInt();
-			try {
-				System.out.println(etudiantServices.afficherEtudiant(numero));
+			String reponse = etudiantServices.afficherEtudiant(numero);
+			if(reponse == null) {
+				System.out.println("Vous avez saisi un mauvais numéro");
+				operationsRepetees();
+			} else {
+				System.out.println(reponse);
 
-			} catch (ClassNotFoundException | SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			} 
 			operationsRepetees();
 			break;
 

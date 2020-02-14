@@ -16,8 +16,11 @@ public class EtudiantServices {
 	 */
 
 	public String afficherEtudiant(int id) throws ClassNotFoundException, SQLException {
-
-		return ed.getEtudiant(id).toString();
+		Etudiant etudiant = ed.getEtudiant(id);
+		if (etudiant != null) {
+			return ed.getEtudiant(id).toString();
+		}
+		return null;
 	}
 
 	/**
