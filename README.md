@@ -1,10 +1,10 @@
-# ensup.architecture.couche
+# Documentation
 
-### Equipe  :
+## Equipe  :
 
-* DANON Kodzo Apelete 
-* LO Ahmadou
-* MOUSSOUNI Braham
+* ### DANON Kodzo Apelete 
+* ### LO Ahmadou
+* ### MOUSSOUNI Braham
 
 ### Etape d'instalaltion du projet 
 
